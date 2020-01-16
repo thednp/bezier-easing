@@ -1,11 +1,3 @@
-/*!
-  * CubicBezier (https://github.com/thednp/CubicBezier)
-  * A simple cubic-bezier easing functions factory for KUTE.js
-  * Copyright 2020 © thednp
-  * based on UnitBezier (https://codepen.io/jwdunn/pen/VJGzNm?editors=0010)
-  * Licensed under MIT (https://github.com/thednp/CubicBezier/blob/master/LICENSE)
-  */
-
 export default class CubicBezier {
 
   constructor(p1x, p1y, p2x, p2y) {

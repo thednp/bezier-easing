@@ -1,0 +1,42 @@
+{
+  "name": "cubic-bezier-easing",
+  "version": "1.0.0",
+  "description": "A simple cubic-bezier easing functions factory for KUTE.js, developed with ES6/ES7 and based on UnitBezier",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "help": "rollup --help",
+    "build": "rollup --config build/rollup.config.js && npm run header Easing",
+    "header": "node build/addHeader.js dist/cubic-bezier.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thednp/CubicBezier.git"
+  },
+  "keywords": [
+    "kute.js",
+    "easing",
+    "ease",
+    "easing functions",
+    "javascript animation engine",
+    "javascript animation",
+    "animations",
+    "native javascript"
+  ],
+  "author": "thednp",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thednp/CubicBezier/issues"
+  },
+  "homepage": "https://github.com/thednp/CubicBezier",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@rollup/plugin-json": "^4.0.1",
+    "rollup": "^1.27.14",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-babel-minify": "^9.1.1",
+    "rollup-plugin-cleanup": "^3.1.1"
+  }
+}
