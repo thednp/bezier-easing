@@ -1,6 +1,6 @@
 export default class CubicBezier {
 
-  constructor(p1x, p1y, p2x, p2y) {
+  constructor(p1x, p1y, p2x, p2y, functionName) {
     // pre-calculate the polynomial coefficients
     // First and last control points are implied to be (0,0) and (1.0, 1.0)
     this.cx = 3.0 * p1x;
@@ -19,7 +19,7 @@ export default class CubicBezier {
 
     // this function needs a name
     Object.defineProperty(BesierEasing, 'name', { writable: true });
-    BesierEasing.name = `cubic-bezier(${[p1x, p1y, p2x, p2y]})`
+    BesierEasing.name = functionName ? functionName :`cubic-bezier(${[p1x, p1y, p2x, p2y]})`
   
     return BesierEasing
   }
