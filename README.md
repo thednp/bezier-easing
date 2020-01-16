@@ -1,5 +1,5 @@
 # CubicBezier
-An ES6/ES7 cubic-bezier class to create easing functions as used in [KUTE.js](https://github.com/thednp/kute.js). The module is based on UnitBezier by Apple, a piece of code found on [Codepen](https://codepen.io/jwdunn/pen/VJGzNm).
+A JavaScript ES6/ES7 cubic-bezier class to create easing functions as used in [KUTE.js](https://github.com/thednp/kute.js). The module is based on UnitBezier by Apple, a piece of code found on [Codepen](https://codepen.io/jwdunn/pen/VJGzNm).
 
 # Install
 ```js

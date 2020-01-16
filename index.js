@@ -74,3 +74,5 @@ export default class CubicBezier {
     return t2;
   }
 }
+
+module.exports = CubicBezier
