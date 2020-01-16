@@ -3,7 +3,7 @@
   * A simple cubic-bezier easing functions factory for KUTE.js
   * Copyright 2020 © thednp
   * based on UnitBezier (https://codepen.io/jwdunn/pen/VJGzNm?editors=0010)
-  * Licensed under MIT (https://github.com/thednp/kute.js/blob/master/LICENSE)
+  * Licensed under MIT (https://github.com/thednp/CubicBezier/blob/master/LICENSE)
   */
 
 export default class CubicBezier {
