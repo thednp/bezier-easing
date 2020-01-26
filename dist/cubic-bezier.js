@@ -18,7 +18,6 @@
       this.cy = 3.0 * p1y;
       this.by = 3.0 * (p2y - p1y) - this.cy;
       this.ay = 1.0 - this.cy - this.by;
-      this.epsilon = 1e-5;
 
       let BesierEasing = t => {
         return this.sampleCurveY(this.solveCurveX(t));
@@ -44,18 +43,19 @@
     }
 
     solveCurveX(x) {
-      var t0;
-      var t1;
-      var t2;
-      var x2;
-      var d2;
-      var i;
+      let t0,
+          t1,
+          t2,
+          x2,
+          d2,
+          i,
+          epsilon = 1e-5;
 
       for (t2 = x, i = 0; i < 32; i++) {
         x2 = this.sampleCurveX(t2) - x;
-        if (Math.abs(x2) < this.epsilon) return t2;
+        if (Math.abs(x2) < epsilon) return t2;
         d2 = this.sampleCurveDerivativeX(t2);
-        if (Math.abs(d2) < this.epsilon) break;
+        if (Math.abs(d2) < epsilon) break;
         t2 = t2 - x2 / d2;
       }
 
@@ -67,7 +67,7 @@
 
       while (t0 < t1) {
         x2 = this.sampleCurveX(t2);
-        if (Math.abs(x2 - x) < this.epsilon) return t2;
+        if (Math.abs(x2 - x) < epsilon) return t2;
         if (x > x2) t0 = t2;else t1 = t2;
         t2 = (t1 - t0) * .5 + t0;
       }
