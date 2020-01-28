@@ -2,7 +2,10 @@
   "name": "cubic-bezier-easing",
   "version": "1.0.1",
   "description": "A simple cubic-bezier easing functions factory for KUTE.js, developed with ES6/ES7 and based on UnitBezier",
-  "main": "index.js",
+  "main": "dist/cubic-bezier.js",
+  "unpkg": "dist/cubic-bezier.min.js",
+  "jsdelivr": "dist/cubic-bezier.min.js",
+  "module": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "help": "rollup --help",

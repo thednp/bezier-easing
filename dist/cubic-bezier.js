@@ -19,15 +19,13 @@
       this.by = 3.0 * (p2y - p1y) - this.cy;
       this.ay = 1.0 - this.cy - this.by;
 
-      let BesierEasing = t => {
-        return this.sampleCurveY(this.solveCurveX(t));
-      };
+      let BezierEasing = t => this.sampleCurveY(this.solveCurveX(t));
 
-      Object.defineProperty(BesierEasing, 'name', {
+      Object.defineProperty(BezierEasing, 'name', {
         writable: true
       });
-      BesierEasing.name = functionName ? functionName : `cubic-bezier(${[p1x, p1y, p2x, p2y]})`;
-      return BesierEasing;
+      BezierEasing.name = functionName ? functionName : `cubic-bezier(${[p1x, p1y, p2x, p2y]})`;
+      return BezierEasing;
     }
 
     sampleCurveX(t) {
@@ -76,7 +74,6 @@
     }
 
   }
-  module.exports = CubicBezier;
 
   return CubicBezier;
 
