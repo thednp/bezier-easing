@@ -1,17 +1,27 @@
 'use strict'
-import babel from 'rollup-plugin-babel'
-import minify from 'rollup-plugin-babel-minify'
+import buble from '@rollup/plugin-buble'
+import {terser} from 'rollup-plugin-terser'
 import cleanup from 'rollup-plugin-cleanup'
 import json from '@rollup/plugin-json'
+import * as pkg from "./package.json";
 
-const banner = require('./header.js')
+const year = (new Date).getFullYear()
+
+const banner = `/*!
+* CubicBezier Easing v${pkg.version} (${pkg.homepage})
+* Copyright 2015-${year} © ${pkg.author}
+* ${pkg.description}
+* Licensed under MIT (https://github.com/thednp/CubicBezier/blob/master/LICENSE)
+*/`
+
+const miniBanner = `// CubicBezier Easing v${pkg.version} | ${pkg.author} © ${year} | ${pkg.license}-License`
 
 export default [
   // UDM Standard Version
   {
     input: 'index.js',
     output: {
-      banner: banner('Easing'),
+      banner: banner,
       name: 'CubicBezier',
       file: './dist/cubic-bezier.js',
       format: 'umd', // or iife
@@ -20,7 +30,7 @@ export default [
     plugins: [
       json(),
       cleanup(),
-      babel({
+      buble({
         exclude: 'node_modules/**' // only transpile our source code
       })
     ]
@@ -36,12 +46,10 @@ export default [
     },
     plugins: [
       json(),
-      babel({
+      buble({
         exclude: 'node_modules/**' // only transpile our source code
       }),
-      minify({
-        comments: false
-      })      
+      terser({output: {preamble: miniBanner}})
     ]
   }
 ]
