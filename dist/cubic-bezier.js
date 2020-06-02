@@ -1,5 +1,5 @@
 /*!
-* CubicBezier Easing v1.0.1 (https://github.com/thednp/CubicBezier)
+* CubicBezier Easing v1.0.2 (https://github.com/thednp/CubicBezier)
 * Copyright 2015-2020 © thednp
 * A simple cubic-bezier easing functions factory for KUTE.js, developed with ES6/ES7 and based on UnitBezier
 * Licensed under MIT (https://github.com/thednp/CubicBezier/blob/master/LICENSE)
@@ -7,12 +7,11 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
-  (global = global || self, global.CubicBezier = factory());
+  (global = global || self, global.dll = factory());
 }(this, (function () { 'use strict';
 
   var CubicBezier = function CubicBezier(p1x, p1y, p2x, p2y, functionName) {
     var this$1 = this;
-
     this.cx = 3.0 * p1x;
     this.bx = 3.0 * (p2x - p1x) - this.cx;
     this.ax = 1.0 - this.cx -this.bx;

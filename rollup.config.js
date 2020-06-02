@@ -15,41 +15,39 @@ const banner = `/*!
 */`
 
 const miniBanner = `// CubicBezier Easing v${pkg.version} | ${pkg.author} © ${year} | ${pkg.license}-License`
+// set config
+const MIN = process.env.MIN === 'true' // true/false|unset
+const FORMAT = process.env.FORMAT // umd|iife|esm|cjs
+
+const INPUTFILE = process.env.INPUTFILE ? process.env.INPUTFILE : 'index.js'
+const OUTPUTFILE = process.env.OUTPUTFILE ? process.env.OUTPUTFILE : (FORMAT === 'umd' ? './dist/cubic-bezier'+(MIN?'.min':'')+'.js' : './dist/cubic-bezier.esm'+(MIN?'.min':'')+'.js')
+
+const OUTPUT = {
+  file: OUTPUTFILE,
+  format: FORMAT, // or iife
+}
+
+const PLUGINS = [
+  json(),
+  buble(),
+  cleanup()
+]
+
+if (MIN){
+  PLUGINS.push(terser({output: {preamble: miniBanner}}));
+} else {
+  OUTPUT.banner = banner;
+  // PLUGINS.push(cleanup());
+}
+
+if (FORMAT!=='esm') {
+  OUTPUT.name = 'dll';
+}
 
 export default [
-  // UDM Standard Version
   {
-    input: 'index.js',
-    output: {
-      banner: banner,
-      name: 'CubicBezier',
-      file: './dist/cubic-bezier.js',
-      format: 'umd', // or iife
-      globals: {}
-    },
-    plugins: [
-      json(),
-      cleanup(),
-      buble({
-        exclude: 'node_modules/**' // only transpile our source code
-      })
-    ]
-  },
-  // UDM Standard Minified Version
-  {
-    input: 'index.js',
-    output: {
-      name: 'CubicBezier',
-      file: './dist/cubic-bezier.min.js',
-      format: 'umd', // or iife 
-      globals: {}
-    },
-    plugins: [
-      json(),
-      buble({
-        exclude: 'node_modules/**' // only transpile our source code
-      }),
-      terser({output: {preamble: miniBanner}})
-    ]
+    input: INPUTFILE,
+    output: OUTPUT,
+    plugins: PLUGINS
   }
 ]
