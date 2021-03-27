@@ -1,6 +1,6 @@
 {
   "name": "cubic-bezier-easing",
-  "version": "1.0.2",
+  "version": "1.0.3-alpha1",
   "description": "A simple cubic-bezier easing functions factory for KUTE.js, developed with ES6/ES7 and based on UnitBezier",
   "main": "dist/cubic-bezier.js",
   "unpkg": "dist/cubic-bezier.min.js",
@@ -10,7 +10,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "help": "rollup --help",
-    "build": "npm-run-all --parallel build-*",
+    "fix:js": "eslint *.js --config .eslintrc --fix --ignore-pattern '*.config.js'",
+    "lint:js": "eslint *.js --config .eslintrc --ignore-pattern '*.config.js'",
+    "build": "npm run lint:js && npm-run-all --parallel build-*",
     "build-js": "rollup --environment FORMAT:umd,MIN:false -c",
     "build-minjs": "rollup --environment FORMAT:umd,MIN:true -c",
     "build-esm": "rollup --environment FORMAT:esm,MIN:false -c",
@@ -37,13 +39,15 @@
     "url": "https://github.com/thednp/CubicBezier/issues"
   },
   "homepage": "https://github.com/thednp/CubicBezier",
-  "dependencies": {},
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.3",
     "@rollup/plugin-json": "^4.0.3",
+    "eslint": "^7.22.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-vue": "^7.7.0",
     "npm-run-all": "^4.1.5",
     "rollup": "^1.32.1",
-    "rollup-plugin-cleanup": "^3.1.1",
     "rollup-plugin-terser": "^5.3.0"
   }
 }
