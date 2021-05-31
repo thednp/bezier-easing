@@ -20,7 +20,9 @@ const MIN = process.env.MIN === 'true'; // true/false|unset
 const { FORMAT } = process.env; // umd|iife|esm|cjs
 
 const INPUTFILE = process.env.INPUTFILE ? process.env.INPUTFILE : 'index.js';
-const OUTPUTFILE = process.env.OUTPUTFILE ? process.env.OUTPUTFILE : (FORMAT === 'umd' ? `./dist/cubic-bezier${MIN ? '.min' : ''}.js` : `./dist/cubic-bezier.esm${MIN ? '.min' : ''}.js`);
+let OUTPUTFILE = FORMAT === 'umd' ? `./dist/cubic-bezier${MIN ? '.min' : ''}.js` : `./dist/cubic-bezier.esm${MIN ? '.min' : ''}.js`;
+
+if (process.env.OUTPUTFILE) OUTPUTFILE = process.env.OUTPUTFILE;
 
 const OUTPUT = {
   file: OUTPUTFILE,
@@ -29,8 +31,11 @@ const OUTPUT = {
 
 const PLUGINS = [
   json(),
-  buble(),
 ];
+
+if (FORMAT !== 'esm') {
+  PLUGINS.push(buble());
+}
 
 if (MIN) {
   PLUGINS.push(terser({ output: { preamble: miniBanner } }));
