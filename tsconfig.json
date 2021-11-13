@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    // "module": "esnext",
+    "declaration": true,
+    // "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "emitDeclarationOnly": true,
+    // "downlevelIteration": true,
+    // "importHelpers": true,
+    "strict": true,
+    "allowJs": true,
+    // "esModuleInterop": true,
+    "outFile": "types/index.d.ts"
+    // "outDir": "types"
+  },
+  "types": [],
+  "files": ["index.js"],
+}

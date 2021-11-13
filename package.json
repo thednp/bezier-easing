@@ -1,11 +1,12 @@
 {
   "name": "cubic-bezier-easing",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A simple cubic-bezier easing functions factory for KUTE.js, developed with ES6+ and based on UnitBezier",
   "main": "dist/cubic-bezier.js",
   "unpkg": "dist/cubic-bezier.min.js",
   "jsdelivr": "dist/cubic-bezier.min.js",
   "module": "dist/cubic-bezier.esm.js",
+  "types": "types/index.d.ts",
   "jsnext": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,6 +14,7 @@
     "fix:js": "eslint *.js --config .eslintrc --fix --ignore-pattern '*.config.js'",
     "lint:js": "eslint *.js --config .eslintrc --ignore-pattern '*.config.js'",
     "build": "npm run lint:js && npm-run-all --parallel build-*",
+    "build-ts": "tsc -d",
     "build-js": "rollup --environment FORMAT:umd,MIN:false -c",
     "build-minjs": "rollup --environment FORMAT:umd,MIN:true -c",
     "build-esm": "rollup --environment FORMAT:esm,MIN:false -c",
@@ -48,6 +50,7 @@
     "eslint-plugin-vue": "^7.7.0",
     "npm-run-all": "^4.1.5",
     "rollup": "^1.32.1",
-    "rollup-plugin-terser": "^5.3.0"
+    "rollup-plugin-terser": "^5.3.0",
+    "typescript": "^4.4.4"
   }
 }
