@@ -10,9 +10,11 @@
     "strict": true,
     "allowJs": true,
     // "esModuleInterop": true,
-    "outFile": "types/index.d.ts"
-    // "outDir": "types"
+    // "outFile": "types/index.d.ts"
+    "outDir": "types"
   },
-  "types": [],
-  "files": ["index.js"],
+  // "types": [],
+  // "files": ["src/index.js"],
+  "include": ["src/*"],
+  "exclude": ["node_modules", "dist", "types"]
 }
