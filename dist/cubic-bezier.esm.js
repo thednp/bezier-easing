@@ -1,21 +1,59 @@
 /*!
-* CubicBezier Easing v1.0.8 (https://github.com/thednp/CubicBezier)
+* CubicBezier Easing v1.0.9 (https://github.com/thednp/CubicBezier)
 * Copyright 2015-2021 © thednp
 * A simple cubic-bezier easing functions factory for KUTE.js, developed with ES6+ and based on UnitBezier
 * Licensed under MIT (https://github.com/thednp/CubicBezier/blob/master/LICENSE)
 */
+/**
+ * Creates a CubicBezier easing function
+ * @class
+ */
 class CubicBezier {
+  /**
+   * @constructor
+   * @param {number} p1x - first point horizontal position
+   * @param {number} p1y - first point vertical position
+   * @param {number} p2x - second point horizontal position
+   * @param {number} p2y - second point vertical position
+   * @param {string} functionName - an optional function name
+   */
   constructor(p1x, p1y, p2x, p2y, functionName) {
     // pre-calculate the polynomial coefficients
     // First and last control points are implied to be (0,0) and (1.0, 1.0)
+  
+    /**
+     * @type {number}
+     */
     this.cx = 3.0 * p1x;
+  
+    /**
+     * @type {number}
+     */
     this.bx = 3.0 * (p2x - p1x) - this.cx;
+
+    /**
+     * @type {number}
+     */
     this.ax = 1.0 - this.cx - this.bx;
-
+    
+    /**
+     * @type {number}
+     */
     this.cy = 3.0 * p1y;
+  
+    /**
+     * @type {number}
+     */
     this.by = 3.0 * (p2y - p1y) - this.cy;
+  
+    /**
+     * @type {number}
+     */
     this.ay = 1.0 - this.cy - this.by;
-
+    
+    /**
+     * @type {Function}
+     */
     const BezierEasing = (t) => this.sampleCurveY(this.solveCurveX(t));
 
     // this function needs a name
@@ -25,18 +63,34 @@ class CubicBezier {
     return BezierEasing;
   }
 
+  /**
+   * @param {number} t - progress [0-1]
+   * @return {number} - sampled X value
+   */
   sampleCurveX(t) {
     return ((this.ax * t + this.bx) * t + this.cx) * t;
   }
 
+  /**
+   * @param {number} t - progress [0-1]
+   * @return {number} - sampled Y value
+   */
   sampleCurveY(t) {
     return ((this.ay * t + this.by) * t + this.cy) * t;
   }
 
+  /**
+   * @param {number} t - progress [0-1]
+   * @return {number} - sampled curve derivative X value
+   */
   sampleCurveDerivativeX(t) {
     return (3.0 * this.ax * t + 2.0 * this.bx) * t + this.cx;
   }
 
+  /**
+   * @param {number} x - progress [0-1]
+   * @return {number} - solved curve X value
+   */
   solveCurveX(x) {
     let t0;
     let t1;
@@ -76,5 +130,17 @@ class CubicBezier {
     return t2;
   }
 }
+
+var version = "1.0.9";
+
+// @ts-ignore
+
+/**
+ * A global namespace for library version.
+ * @type {string}
+ */
+const Version = version;
+
+CubicBezier.Version = Version;
 
 export default CubicBezier;
