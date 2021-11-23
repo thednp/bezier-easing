@@ -1,11 +1,12 @@
 /*!
-* CubicBezier Easing v1.0.9 (https://github.com/thednp/CubicBezier)
+* CubicBezier Easing v1.0.10 (https://github.com/thednp/CubicBezier)
 * Copyright 2015-2021 © thednp
 * A simple cubic-bezier easing functions factory for KUTE.js, developed with ES6+ and based on UnitBezier
 * Licensed under MIT (https://github.com/thednp/CubicBezier/blob/master/LICENSE)
 */
 /**
- * Creates a CubicBezier easing function
+ * Creates cubic-bezier easing functions.
+ *
  * @class
  */
 class CubicBezier {
@@ -21,39 +22,25 @@ class CubicBezier {
     // pre-calculate the polynomial coefficients
     // First and last control points are implied to be (0,0) and (1.0, 1.0)
   
-    /**
-     * @type {number}
-     */
+    /** @type {number} */
     this.cx = 3.0 * p1x;
   
-    /**
-     * @type {number}
-     */
+    /** @type {number} */
     this.bx = 3.0 * (p2x - p1x) - this.cx;
 
-    /**
-     * @type {number}
-     */
+    /** @type {number} */
     this.ax = 1.0 - this.cx - this.bx;
     
-    /**
-     * @type {number}
-     */
+    /** @type {number} */
     this.cy = 3.0 * p1y;
   
-    /**
-     * @type {number}
-     */
+    /** @type {number} */
     this.by = 3.0 * (p2y - p1y) - this.cy;
   
-    /**
-     * @type {number}
-     */
+    /** @type {number} */
     this.ay = 1.0 - this.cy - this.by;
     
-    /**
-     * @type {Function}
-     */
+    /** @type {Function} */
     const BezierEasing = (t) => this.sampleCurveY(this.solveCurveX(t));
 
     // this function needs a name
@@ -131,7 +118,7 @@ class CubicBezier {
   }
 }
 
-var version = "1.0.9";
+var version = "1.0.10";
 
 // @ts-ignore
 

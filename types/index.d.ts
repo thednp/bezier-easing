@@ -1,2 +1,62 @@
-export default CubicBezier;
-import CubicBezier from "./CubicBezier.js";
+declare module "cubic-bezier-easing" {
+    /**
+     * Creates cubic-bezier easing functions.
+     *
+     * @class
+     */
+    export default class CubicBezier {
+        /**
+         * @constructor
+         * @param {number} p1x - first point horizontal position
+         * @param {number} p1y - first point vertical position
+         * @param {number} p2x - second point horizontal position
+         * @param {number} p2y - second point vertical position
+         * @param {string} functionName - an optional function name
+         */
+        constructor(p1x: number, p1y: number, p2x: number, p2y: number, functionName: string);
+        /** @type {number} */
+        cx: number;
+        /** @type {number} */
+        bx: number;
+        /** @type {number} */
+        ax: number;
+        /** @type {number} */
+        cy: number;
+        /** @type {number} */
+        by: number;
+        /** @type {number} */
+        ay: number;
+        /**
+         * @param {number} t - progress [0-1]
+         * @return {number} - sampled X value
+         */
+        sampleCurveX(t: number): number;
+        /**
+         * @param {number} t - progress [0-1]
+         * @return {number} - sampled Y value
+         */
+        sampleCurveY(t: number): number;
+        /**
+         * @param {number} t - progress [0-1]
+         * @return {number} - sampled curve derivative X value
+         */
+        sampleCurveDerivativeX(t: number): number;
+        /**
+         * @param {number} x - progress [0-1]
+         * @return {number} - solved curve X value
+         */
+        solveCurveX(x: number): number;
+    }
+}
+declare module "version" {
+    export default Version;
+    /**
+     * A global namespace for library version.
+     * @type {string}
+     */
+    const Version: string;
+}
+declare module "index" {
+    export default CubicBezier;
+    import CubicBezier from "cubic-bezier-easing";
+}

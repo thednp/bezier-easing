@@ -1,5 +1,5 @@
-import CubicBezier from './CubicBezier.js';
-import Version from './version.js';
+import CubicBezier from './cubic-bezier-easing';
+import Version from './version';
 
 CubicBezier.Version = Version;
 

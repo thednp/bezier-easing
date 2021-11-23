@@ -1,6 +1,6 @@
 {
   "name": "cubic-bezier-easing",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "A simple cubic-bezier easing functions factory for KUTE.js, developed with ES6+ and based on UnitBezier",
   "main": "dist/cubic-bezier.js",
   "unpkg": "dist/cubic-bezier.min.js",
@@ -26,7 +26,8 @@
   },
   "keywords": [
     "kute.js",
-    "cubi-bezier",
+    "cubic-bezier",
+    "cubic-bezier-easing",
     "easing",
     "ease",
     "easing functions",
