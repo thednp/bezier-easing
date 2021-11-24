@@ -48,15 +48,3 @@ declare module "cubic-bezier-easing" {
         solveCurveX(x: number): number;
     }
 }
-declare module "version" {
-    export default Version;
-    /**
-     * A global namespace for library version.
-     * @type {string}
-     */
-    const Version: string;
-}
-declare module "index" {
-    export default CubicBezier;
-    import CubicBezier from "cubic-bezier-easing";
-}

@@ -9,6 +9,6 @@
     "outFile": "types/index.d.ts",
     "rootDir": "src/",
   },
-  "include": ["src/*"],
+  "files": ["src/cubic-bezier-easing.js"],
   "exclude": ["node_modules", "dist", "types"]
 }
