@@ -19,7 +19,7 @@ const miniBanner = `// CubicBezier Easing v${pkg.version} | ${pkg.author} © ${y
 const MIN = process.env.MIN === 'true'; // true/false|unset
 const { FORMAT } = process.env; // umd|iife|esm|cjs
 
-const INPUTFILE = process.env.INPUTFILE ? process.env.INPUTFILE : 'src/index.js';
+const INPUTFILE = process.env.INPUTFILE ? process.env.INPUTFILE : 'index.js';
 let OUTPUTFILE = FORMAT === 'umd' ? `./dist/cubic-bezier${MIN ? '.min' : ''}.js` : `./dist/cubic-bezier.esm${MIN ? '.min' : ''}.js`;
 
 if (process.env.OUTPUTFILE) OUTPUTFILE = process.env.OUTPUTFILE;

@@ -4,10 +4,10 @@
     "declaration": true,
     "resolveJsonModule": true,
     "emitDeclarationOnly": true,
+    "removeComments": true,
     "strict": true,
     "allowJs": true,
-    "outFile": "types/index.d.ts",
-    "rootDir": "src/",
+    "outDir": "types",
   },
   "files": ["src/cubic-bezier-easing.js"],
   "exclude": ["node_modules", "dist", "types"]
