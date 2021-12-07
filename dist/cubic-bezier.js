@@ -1,5 +1,5 @@
 /*!
-* CubicBezier Easing v1.0.12 (https://github.com/thednp/CubicBezier)
+* CubicBezier Easing v1.0.13 (https://github.com/thednp/CubicBezier)
 * Copyright 2015-2021 © thednp
 * A simple cubic-bezier easing functions factory for KUTE.js, developed with ES6+ and based on UnitBezier
 * Licensed under MIT (https://github.com/thednp/CubicBezier/blob/master/LICENSE)
@@ -39,7 +39,7 @@
     /** @type {number} */
     this.ay = 1.0 - this.cy - this.by;
       
-    /** @type {Function} */
+    /** @type {(t: number) => number} */
     var BezierEasing = function (t) { return this$1.sampleCurveY(this$1.solveCurveX(t)); };
 
     // this function needs a name

@@ -10,7 +10,8 @@ export default class CubicBezier {
    * @param {number} p1y - first point vertical position
    * @param {number} p2x - second point horizontal position
    * @param {number} p2y - second point vertical position
-   * @param {string} functionName - an optional function name
+   * @param {string=} functionName - an optional function name
+   * @returns {(t: number) => number} a new CubicBezier easing function
    */
   constructor(p1x, p1y, p2x, p2y, functionName) {
     // pre-calculate the polynomial coefficients
@@ -34,7 +35,7 @@ export default class CubicBezier {
     /** @type {number} */
     this.ay = 1.0 - this.cy - this.by;
     
-    /** @type {Function} */
+    /** @type {(t: number) => number} */
     const BezierEasing = (t) => this.sampleCurveY(this.solveCurveX(t));
 
     // this function needs a name
