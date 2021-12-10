@@ -7,13 +7,13 @@
     // "removeComments": true,
     "strict": true,
     "allowJs": true,
-    "outFile": "types/cubic-bezier-easing.d.ts",
+    "outFile": "types/cubic-bezier-easing.d.ts", // comment after generate
     "outDir": "types",
     "rootDir": "../"
   },
   "files": [
     "types/index.d.ts",
     "types/cubic-bezier-easing.d.ts", // comment to generate, delete file
-    // "src/cubic-bezier-easing.js", // UN-comment to generate, comment after
+    // "types/modules/cubic-bezier-easing.ts", // UN-comment to generate, comment after
   ],
 }
