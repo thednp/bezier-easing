@@ -1,2 +1,8 @@
 node_modules/
-package-lock.json
+.nyc_output
+experiments
+coverage
+cypress/videos
+cypress/screenshots
+cypress/coverage
+cypress/instrumented

@@ -3,12 +3,12 @@ A JavaScript ES6/ES7 cubic-bezier class to create easing functions as used in [K
 
 # Install
 ```js
-npm install cubic-bezier-easing
+npm install @thednp/bezier-easing
 ```
 
 # Usage
 ```js
-import CubicBezier from 'cubic-bezier-easing'
+import CubicBezier from '@thednp/bezier-easing'
 
 let easeCubicInOut = new CubicBezier(0.645, 0.045, 0.355, 1)
 

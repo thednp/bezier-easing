@@ -1,3 +1,10 @@
 node_modules/
 .gitignore
-package-lock.json
+.github
+.nyc_output
+experiments
+coverage
+cypress/videos
+cypress/screenshots
+cypress/coverage
+cypress/instrumented

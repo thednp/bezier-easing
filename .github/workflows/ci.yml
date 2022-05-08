@@ -1,0 +1,26 @@
+name: ci
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        node: [14, 16]
+    name: Test on Node v${{ matrix.node }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+      - uses: bahmutov/npm-install@v1
+      - run: npm run lint:js
+      - run: npm run build-js
+      - run: npm run test
+      
+      - name: Upload coverage report on Node v${{ matrix.node }} to coveralls.io...
+        uses: coverallsapp/github-action@v1.1.2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}

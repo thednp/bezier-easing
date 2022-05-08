@@ -7,7 +7,7 @@
     // "removeComments": true,
     "strict": true,
     "allowJs": true,
-    "outFile": "types/cubic-bezier-easing.d.ts", // comment after generate
+    // "outFile": "types/cubic-bezier-easing.d.ts", // comment after generate
     "outDir": "types",
     "rootDir": "../"
   },
