@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thednp/CubicBezier.git"
+    "url": "git+https://github.com/thednp/bezier-easing.git"
   },
   "keywords": [
     "kute.js",
@@ -40,9 +40,9 @@
   "author": "thednp",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/thednp/cubic-bezier-easing/issues"
+    "url": "https://github.com/thednp/bezier-easing/issues"
   },
-  "homepage": "https://github.com/thednp/cubic-bezier-easing",
+  "homepage": "https://github.com/thednp/bezier-easing",
   "devDependencies": {
     "@bahmutov/cypress-esbuild-preprocessor": "^2.1.3",
     "@cypress/code-coverage": "^3.9.12",
