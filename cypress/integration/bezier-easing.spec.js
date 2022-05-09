@@ -52,8 +52,8 @@ describe('CubicBezier Class Test', () => {
         .start();
         return btn;
       })
-      .wait(150)
-      .and((btn) => {
+      .wait(1000)
+      .then((btn) => {
         expect(btn[0].style.left).to.equal('250px');
       })
     });
