@@ -47,12 +47,12 @@ describe('CubicBezier Class Test', () => {
         });
       }
       cy.get('@btn').should('exist').then((btn) => {
-        new Tween(btn[0], {left: 0}, {left: 250}, 100, ease)
+        new Tween(btn[0], {left: 0}, {left: 250}, 500, ease)
         .onUpdate(updateTween)
         .start();
         return btn;
       })
-      .wait(117)
+      .wait(550)
       .then((btn) => {
         expect(btn[0].style.left).to.equal('250px');
       })
