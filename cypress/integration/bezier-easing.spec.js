@@ -47,15 +47,15 @@ describe('CubicBezier Class Test', () => {
         });
       }
       cy.get('@btn').should('exist').then((btn) => {
-        new Tween(btn[0], {left: 0}, {left: 250}, 500, ease)
+        new Tween(btn[0], {left: 0}, {left: 250}, 100, ease)
         .onUpdate(updateTween)
         .start();
+        setTimeout(() => {
+          expect(btn[0].style.left).to.equal('250px');
+        }, 117)
         return btn;
       })
-      .wait(600)
-      .then((btn) => {
-        expect(btn[0].style.left).to.equal('250px');
-      })
+      .wait(200)
     });
   })
 });
