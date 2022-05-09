@@ -4,6 +4,7 @@
 import CubicBezier from '../../src/index';
 import round4 from '../fixtures/round4';
 import Tween from '../fixtures/basic-animation-engine';
+import easingParams from '../fixtures/easing-params';
 
 describe('CubicBezier Class Test', () => {
   beforeEach(() => {
@@ -14,7 +15,7 @@ describe('CubicBezier Class Test', () => {
       .wait(200)
   });
 
-  it('Can do basic function, no parameters = linear', () => {
+  it('Can do basic function, no parameters => linear', () => {
     const linear = new CubicBezier();
     [0,0.25,0.5,0.75,1].forEach((step) => {
       expect(round4(linear(step))).to.equal(step)
@@ -22,7 +23,7 @@ describe('CubicBezier Class Test', () => {
   });
 
   it('Can do basic function, cubicOut', () => {
-    const cubicOut = new CubicBezier(0.22, 0.61, 0.36, 1);
+    const cubicOut = new CubicBezier(...easingParams[3]);
     [0,0.25,0.5,0.75,1].forEach((step) => {
       const roundedValue = round4(cubicOut(step));
       if ([0, 1].includes(step)) {
@@ -33,37 +34,28 @@ describe('CubicBezier Class Test', () => {
     })
   });
 
-  it('Can do basic animation', () => {
-    const backIn = new CubicBezier(0.6, -0.28, 0.74, 0.05);
-    const backOut = new CubicBezier(0.18, 0.89, 0.32, 1.28);
-    function updateLeft(t) {
-      const { propsEnd, propsStart, element } = this;
-
-      Object.keys(propsEnd).forEach((prop) => {
-        const a = propsStart[prop];
-        const b = propsEnd[prop];
-        element.style[prop] = (a + (b - a) * t) + 'px';
-      });
-    }
-    cy.get('@btn').should('exist').then((btn) => {
-      new Tween(btn[0], {left: 0}, {left: 250}, 1500, backIn)
-      .onUpdate(updateLeft).start();
-      return btn;
-    })
-    .wait(2000)
-    .then((btn) => {
-      expect(btn[0].style.left).to.equal('250px');
-      return btn;
-    })
-    .then((btn) => {
-      new Tween(btn[0], {left: 250}, {left: 0}, 1500, backOut)
-      .onUpdate(updateLeft).start();
-      return btn;
-    })
-    .wait(2000)
-    .then((btn) => {
-      cy.log(btn)
-      expect(btn[0].style.left).to.equal('0px');
+  easingParams.forEach((params, i) => {
+    it(`Can do basic animation #${i}`, () => {
+      const ease = new CubicBezier(...params);
+      function updateTween(t) {
+        const { propsEnd, propsStart, element } = this;
+  
+        Object.keys(propsEnd).forEach((prop) => {
+          const a = propsStart[prop];
+          const b = propsEnd[prop];
+          element.style[prop] = (a + (b - a) * t) + 'px';
+        });
+      }
+      cy.get('@btn').should('exist').then((btn) => {
+        new Tween(btn[0], {left: 0}, {left: 250}, 100, ease)
+        .onUpdate(updateTween)
+        .start();
+        return btn;
+      })
+      .wait(117)
+      .then((btn) => {
+        expect(btn[0].style.left).to.equal('250px');
+      })
     });
-  });
+  })
 });

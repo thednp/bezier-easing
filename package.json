@@ -1,11 +1,11 @@
 {
   "name": "@thednp/bezier-easing",
-  "version": "1.0.0alpha1",
+  "version": "1.0.0",
   "description": "A simple cubic-bezier easing functions factory for KUTE.js, developed with ES6+ and based on UnitBezier",
-  "main": "dist/cubic-bezier.js",
-  "unpkg": "dist/cubic-bezier.min.js",
-  "jsdelivr": "dist/cubic-bezier.min.js",
-  "module": "dist/cubic-bezier.esm.js",
+  "main": "dist/bezier-easing.js",
+  "unpkg": "dist/bezier-easing.min.js",
+  "jsdelivr": "dist/bezier-easing.min.js",
+  "module": "dist/bezier-easing.esm.js",
   "types": "types/index.d.ts",
   "jsnext": "src/index.js",
   "publishConfig": {
@@ -15,7 +15,7 @@
   "scripts": {
     "test": "npx cypress run",
     "cypress": "npx cypress open",
-    "coverage:report": "nyc report --reporter=lcov --reporter=json --reporter=text-summary --reporter=json-summary",
+    "coverage:report": "nyc report --reporter=lcov --reporter=json --reporter=text --reporter=json-summary",
     "fix:js": "eslint *.js --config .eslintrc --fix --ignore-pattern '*.config.js'",
     "lint:js": "eslint *.js --config .eslintrc --ignore-pattern '*.config.js'",
     "build": "npm run lint:js && npm-run-all --parallel build-*",

@@ -1,3 +1,5 @@
+/** @typedef {import('../types/index')} */
+
 import CubicBezier from './bezier-easing';
 import Version from './version';
 
