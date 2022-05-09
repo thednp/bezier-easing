@@ -46,14 +46,14 @@ describe('CubicBezier Class Test', () => {
           element.style[prop] = (a + (b - a) * t) + 'px';
         });
       }
-      cy.get('@btn').should('exist').then((btn) => {
+      cy.get('@btn').should('exist').should((btn) => {
         new Tween(btn[0], {left: 0}, {left: 250}, 100, ease)
         .onUpdate(updateTween)
         .start();
         return btn;
       })
-      .wait(500)
-      .then((btn) => {
+      .wait(200)
+      .and((btn) => {
         expect(btn[0].style.left).to.equal('250px');
       })
     });
