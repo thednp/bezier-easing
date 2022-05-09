@@ -20,6 +20,7 @@ export default class Tween {
     this.propsEnd = propsEnd;
     this.duration = duration || 700;
     this.easing = easing || 'linear';
+    return this;
   }
   start(t){
     tweens.push(this);
@@ -28,7 +29,7 @@ export default class Tween {
     return this;
   }
   update(t) {
-    const { element, propsStart, propsEnd, duration, easing, startTime } = this;
+    const { duration, easing, startTime } = this;
     const time = t || window.performance.now();
     let elapsed = 0;
 
@@ -38,11 +39,9 @@ export default class Tween {
     elapsed = (duration === 0 || elapsed > 1) ? 1 : elapsed;
     const progress = easing(elapsed);
 
-    Object.keys(propsEnd).forEach((prop) => {
-      const a = propsStart[prop];
-      const b = propsEnd[prop];
-      element.style[prop] = (a + (b - a) * progress) + 'px';
-    });
+    if (typeof this._onUpdate === 'function') {
+      this._onUpdate.call(this, progress);
+    }
 
     if (elapsed === 1) {
       if (tick && !tweens.length) {
@@ -51,5 +50,10 @@ export default class Tween {
       return false;
     }
     return true;
+  }
+
+  onUpdate(onUpdate){
+    this._onUpdate = onUpdate;
+    return this;
   }
 }

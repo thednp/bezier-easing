@@ -36,8 +36,18 @@ describe('CubicBezier Class Test', () => {
   it('Can do basic animation', () => {
     const backIn = new CubicBezier(0.6, -0.28, 0.74, 0.05);
     const backOut = new CubicBezier(0.18, 0.89, 0.32, 1.28);
+    function updateLeft(t) {
+      const { propsEnd, propsStart, element } = this;
+
+      Object.keys(propsEnd).forEach((prop) => {
+        const a = propsStart[prop];
+        const b = propsEnd[prop];
+        element.style[prop] = (a + (b - a) * t) + 'px';
+      });
+    }
     cy.get('@btn').should('exist').then((btn) => {
-      new Tween(btn[0], {left: 0}, {left: 250}, 1500, backIn).start();
+      new Tween(btn[0], {left: 0}, {left: 250}, 1500, backIn)
+      .onUpdate(updateLeft).start();
       return btn;
     })
     .wait(2000)
@@ -46,7 +56,8 @@ describe('CubicBezier Class Test', () => {
       return btn;
     })
     .then((btn) => {
-      new Tween(btn[0], {left: 250}, {left: 0}, 1500, backOut).start();
+      new Tween(btn[0], {left: 250}, {left: 0}, 1500, backOut)
+      .onUpdate(updateLeft).start();
       return btn;
     })
     .wait(2000)
