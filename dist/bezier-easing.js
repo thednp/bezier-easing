@@ -1,5 +1,5 @@
 /*!
-* CubicBezier Easing v1.0.0 (https://github.com/thednp/bezier-easing)
+* CubicBezier Easing v1.0.1 (https://github.com/thednp/bezier-easing)
 * Copyright 2015-2022 © thednp
 * A simple cubic-bezier easing functions factory for KUTE.js, developed with ES6+ and based on UnitBezier
 * Licensed under MIT (https://github.com/thednp/bezier-easing/blob/master/LICENSE)
@@ -125,7 +125,7 @@
     return t2;
   };
 
-  var version = "1.0.0";
+  var version = "1.0.1";
 
   /**
    * A global namespace for library version.
