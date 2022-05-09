@@ -1,4 +1,4 @@
-declare module "cubic-bezier-easing/src/cubic-bezier-easing" {
+declare module "bezier-easing/src/bezier-easing" {
     /**
      * Creates cubic-bezier easing functions.
      *
@@ -49,6 +49,6 @@ declare module "cubic-bezier-easing/src/cubic-bezier-easing" {
         solveCurveX(x: number): number;
     }
 }
-declare module "cubic-bezier-easing/dist/cubic-bezier.esm" {
-    export { default as CubicBezier } from "cubic-bezier-easing/src/cubic-bezier-easing";
+declare module "bezier-easing/dist/cubic-bezier.esm" {
+    export { default as CubicBezier } from "bezier-easing/src/bezier-easing";
 }
