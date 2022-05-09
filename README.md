@@ -1,4 +1,8 @@
-# CubicBezier ![cypress version](https://img.shields.io/badge/cypress-9.6.0-brightgreen) ![typescript version](https://img.shields.io/badge/typescript-4.5.2-brightgreen) [![ci](https://github.com/thednp/CubicBezier/actions/workflows/ci.yml/badge.svg)](https://github.com/thednp/CubicBezier/actions/workflows/ci.yml)
+# CubicBezier
+[![Coverage Status](https://coveralls.io/repos/github/thednp/bezier-easing/badge.svg)](https://coveralls.io/github/thednp/bezier-easing)
+![cypress version](https://img.shields.io/badge/cypress-9.6.0-brightgreen)
+![typescript version](https://img.shields.io/badge/typescript-4.5.2-brightgreen)
+[![ci](https://github.com/thednp/CubicBezier/actions/workflows/ci.yml/badge.svg)](https://github.com/thednp/CubicBezier/actions/workflows/ci.yml)
 
 A JavaScript ES6/ES7 cubic-bezier class to create easing functions as used in [KUTE.js](https://github.com/thednp/kute.js). The module is based on UnitBezier by Apple, a piece of code found on [Codepen](https://codepen.io/jwdunn/pen/VJGzNm).
 
