@@ -1,5 +1,5 @@
 # CubicBezier
-[![Coverage Status](https://coveralls.io/repos/github/thednp/bezier-easing/badge.svg)](https://coveralls.io/github/thednp/bezier-easing)
+[![Coverage Status](https://coveralls.io/repos/github/thednp/bezier-easing/badge.svg?branch=master)](https://coveralls.io/github/thednp/bezier-easing?branch=master)
 ![cypress version](https://img.shields.io/badge/cypress-9.6.0-brightgreen)
 ![typescript version](https://img.shields.io/badge/typescript-4.5.2-brightgreen)
 [![ci](https://github.com/thednp/CubicBezier/actions/workflows/ci.yml/badge.svg)](https://github.com/thednp/CubicBezier/actions/workflows/ci.yml)
