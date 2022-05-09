@@ -16,7 +16,7 @@ jobs:
       - run: npm run lint:js
       - run: npm run build-js
       - run: npm run test
-      
+
       - name: Upload coverage report on Node 16 to coveralls.io...
         uses: coverallsapp/github-action@v1.1.2
         with:
