@@ -1,6 +1,6 @@
 {
   "name": "@thednp/bezier-easing",
-  "version": "1.0.0",
+  "version": "1.0.0alpha1",
   "description": "A simple cubic-bezier easing functions factory for KUTE.js, developed with ES6+ and based on UnitBezier",
   "main": "dist/cubic-bezier.js",
   "unpkg": "dist/cubic-bezier.min.js",

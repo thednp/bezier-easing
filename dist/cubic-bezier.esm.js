@@ -1,6 +1,6 @@
 /*!
-* CubicBezier Easing v1.0.18 (https://github.com/thednp/CubicBezier)
-* Copyright 2015-2021 © thednp
+* CubicBezier Easing v1.0.0alpha1 (https://github.com/thednp/bezier-easing)
+* Copyright 2015-2022 © thednp
 * A simple cubic-bezier easing functions factory for KUTE.js, developed with ES6+ and based on UnitBezier
 * Licensed under MIT (https://github.com/thednp/CubicBezier/blob/master/LICENSE)
 */
@@ -12,16 +12,20 @@
 class CubicBezier {
   /**
    * @constructor
-   * @param {number} p1x - first point horizontal position
-   * @param {number} p1y - first point vertical position
-   * @param {number} p2x - second point horizontal position
-   * @param {number} p2y - second point vertical position
+   * @param {number} x1 - first point horizontal position
+   * @param {number} y1 - first point vertical position
+   * @param {number} x2 - second point horizontal position
+   * @param {number} y2 - second point vertical position
    * @param {string=} functionName - an optional function name
    * @returns {(t: number) => number} a new CubicBezier easing function
    */
-  constructor(p1x, p1y, p2x, p2y, functionName) {
+  constructor(x1, y1, x2, y2, functionName) {
     // pre-calculate the polynomial coefficients
     // First and last control points are implied to be (0,0) and (1.0, 1.0)
+    const p1x = x1 || 0;
+    const p1y = y1 || 0;
+    const p2x = x2 || 1;
+    const p2y = y2 || 1;
   
     /** @type {number} */
     this.cx = 3.0 * p1x;
@@ -93,8 +97,10 @@ class CubicBezier {
       x2 = this.sampleCurveX(t2) - x;
       if (Math.abs(x2) < epsilon) return t2;
       d2 = this.sampleCurveDerivativeX(t2);
-      if (Math.abs(d2) < epsilon) break;
-      t2 -= x2 / d2;
+      if (Math.abs(d2) < epsilon) {
+        t2 -= x2 / d2;
+        break;
+      }
     }
 
     // No solution found - use bi-section
@@ -119,9 +125,7 @@ class CubicBezier {
   }
 }
 
-var version = "1.0.18";
-
-// @ts-ignore
+var version = "1.0.0alpha1";
 
 /**
  * A global namespace for library version.
