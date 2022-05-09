@@ -50,18 +50,12 @@ describe('CubicBezier Class Test', () => {
         new Tween(btn[0], {left: 0}, {left: 250}, 100, ease)
         .onUpdate(updateTween)
         .start();
-        setTimeout(() => {
-          expect(btn[0].style.left).to.equal('250px');
-        }, 150)
-        // return btn;
+        return btn;
       })
-      // .wait(500)
-      // .and((btn) => {
-      //   setTimeout(() => {
-      //     expect(btn[0].style.left).to.equal('250px');
-      //   },150)
-      //   expect(btn[0].style.left).to.equal('250px');
-      // })
+      .wait(500)
+      .and((btn) => {
+        expect(btn[0].style.left).to.equal('250px');
+      })
     });
   })
 });
