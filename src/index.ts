@@ -1,85 +1,88 @@
+import type { BezierEasingFunction } from './easing-function';
+
 /**
  * Creates cubic-bezier easing functions for animation engines.
+ *
  * @see http://svn.webkit.org/repository/webkit/trunk/Source/WebCore/platform/graphics/UnitBezier.h
- * 
  *
  * @class
  */
 export default class CubicBezier {
+  public cx: number;
+  public bx: number;
+  public ax: number;
+  public cy: number;
+  public by: number;
+  public ay: number;
   /**
    * @constructor
-   * @param {number} x1 - first point horizontal position
-   * @param {number} y1 - first point vertical position
-   * @param {number} x2 - second point horizontal position
-   * @param {number} y2 - second point vertical position
-   * @param {string=} functionName - an optional function name
-   * @returns {(t: number) => number} a new CubicBezier easing function
+   * @param x1 - first point horizontal position
+   * @param y1 - first point vertical position
+   * @param x2 - second point horizontal position
+   * @param y2 - second point vertical position
+   * @param functionName - an optional function name
+   * @returns a new CubicBezier easing function
    */
-  constructor(x1, y1, x2, y2, functionName) {
+  constructor(x1?: number, y1?: number, x2?: number, y2?: number, functionName?: string) {
     // pre-calculate the polynomial coefficients
     // First and last control points are implied to be (0.0, 0.0) and (1.0, 1.0)
     const p1x = x1 || 0;
     const p1y = y1 || 0;
     const p2x = x2 || 1;
     const p2y = y2 || 1;
-  
-    /** @type {number} */
-    this.cx = 3 * p1x;
-  
-    /** @type {number} */
-    this.bx = 3 * (p2x - p1x) - this.cx;
+    const isNumber = (n: unknown): n is number => typeof n === 'number';
+    const allNumbers = [x1, y1, x2, y2].every(isNumber);
+    const name = functionName
+      ? functionName
+      : allNumbers
+      ? `cubic-bezier(${[p1x, p1y, p2x, p2y].join(',')})`
+      : 'linear';
 
-    /** @type {number} */
+    this.cx = 3 * p1x;
+    this.bx = 3 * (p2x - p1x) - this.cx;
     this.ax = 1 - this.cx - this.bx;
-    
-    /** @type {number} */
     this.cy = 3 * p1y;
-  
-    /** @type {number} */
     this.by = 3 * (p2y - p1y) - this.cy;
-  
-    /** @type {number} */
     this.ay = 1 - this.cy - this.by;
-    
-    /** @type {(t: number) => number} */
-    const BezierEasing = (t) => this.sampleCurveY(this.solveCurveX(t));
+
+    const BezierEasing = (t: number) => this.sampleCurveY(this.solveCurveX(t));
 
     // this function needs a name
     Object.defineProperty(BezierEasing, 'name', { writable: true });
-    BezierEasing.name = functionName || `cubic-bezier(${[p1x, p1y, p2x, p2y]})`;
+    BezierEasing.name = name;
 
-    return BezierEasing;
+    return BezierEasing as BezierEasingFunction;
   }
 
   /**
-   * @param {number} t - progress [0-1]
-   * @return {number} - sampled X value
+   * @param t - progress [0-1]
+   * @return - sampled X value
    */
-  sampleCurveX(t) {
+  sampleCurveX(t: number) {
     return ((this.ax * t + this.bx) * t + this.cx) * t;
   }
 
   /**
-   * @param {number} t - progress [0-1]
-   * @return {number} - sampled Y value
+   * @param t - progress [0-1]
+   * @return - sampled Y value
    */
-  sampleCurveY(t) {
+  sampleCurveY(t: number) {
     return ((this.ay * t + this.by) * t + this.cy) * t;
   }
 
   /**
-   * @param {number} t - progress [0-1]
-   * @return {number} - sampled curve derivative X value
+   * @param t - progress [0-1]
+   * @return - sampled curve derivative X value
    */
-  sampleCurveDerivativeX(t) {
+  sampleCurveDerivativeX(t: number) {
     return (3 * this.ax * t + 2 * this.bx) * t + this.cx;
   }
 
   /**
-   * @param {number} x - progress [0-1]
-   * @return {number} - solved curve X value
+   * @param x - progress [0-1]
+   * @return - solved curve X value
    */
-  solveCurveX(x) {
+  solveCurveX(x: number) {
     // Set Precision
     const epsilon = 1e-6;
 

@@ -1,29 +1,32 @@
 {
   "name": "@thednp/bezier-easing",
-  "version": "1.0.1",
+  "version": "1.0.2-alpha1",
   "description": "A simple cubic-bezier easing functions factory for KUTE.js, developed with ES6+ and based on UnitBezier",
+  "homepage": "https://github.com/thednp/bezier-easing",
+  "author": "thednp",
+  "license": "MIT",
   "main": "dist/bezier-easing.js",
-  "unpkg": "dist/bezier-easing.min.js",
-  "jsdelivr": "dist/bezier-easing.min.js",
-  "module": "dist/bezier-easing.esm.js",
-  "types": "types/index.d.ts",
-  "jsnext": "src/index.js",
+  "module": "dist/bezier-easing.cjs",
+  "esnext": "dist/bezier-easing.mjs",
+  "types": "dist/bezier-easing.d.ts",
+  "bugs": {
+    "url": "https://github.com/thednp/bezier-easing/issues"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "test": "npx cypress run",
-    "cypress": "npx cypress open",
+    "pre-test": "npm run clean-coverage",
+    "clean-coverage": "rimraf coverage .nyc_output",
+    "test": "npm run pre-test && npx cypress run",
+    "cypress": "npm run pre-test && npx cypress open",
     "coverage:report": "nyc report --reporter=lcov --reporter=json --reporter=text --reporter=json-summary",
-    "fix:js": "eslint *.js --config .eslintrc --fix --ignore-pattern '*.config.js'",
-    "lint:js": "eslint *.js --config .eslintrc --ignore-pattern '*.config.js'",
-    "build": "npm run lint:js && npm-run-all --parallel build-*",
-    "build:ts": "tsc -d",
-    "build-js": "rollup --environment FORMAT:umd,MIN:false -c",
-    "build-minjs": "rollup --environment FORMAT:umd,MIN:true -c",
-    "build-esm": "rollup --environment FORMAT:esm,MIN:false -c",
-    "build-esmjs": "rollup --environment FORMAT:esm,MIN:true -c"
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint:ts": "eslint -c .eslintrc.cjs --ext .ts src",
+    "fix:ts": "eslint -c .eslintrc.cjs --ext .ts src --fix",
+    "build": "npm run lint:ts && vite build && npm run dts",
+    "dts": "dts-bundle-generator --config ./dts.config.ts"
   },
   "repository": {
     "type": "git",
@@ -39,31 +42,26 @@
     "animation engine",
     "animation",
     "animations",
-    "javascript"
+    "typescript"
   ],
-  "author": "thednp",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/thednp/bezier-easing/issues"
-  },
-  "homepage": "https://github.com/thednp/bezier-easing",
   "devDependencies": {
-    "@bahmutov/cypress-esbuild-preprocessor": "^2.1.3",
-    "@cypress/code-coverage": "^3.9.12",
-    "@rollup/plugin-buble": "^0.21.3",
-    "@rollup/plugin-json": "^4.0.3",
-    "cypress": "^9.6.0",
-    "esbuild": "^0.14.30",
-    "eslint": "^7.22.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-vue": "^7.7.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.1.5",
+    "@cypress/code-coverage": "^3.10.0",
+    "@types/istanbul-lib-instrument": "^1.7.4",
+    "@typescript-eslint/eslint-plugin": "^5.47.1",
+    "@typescript-eslint/parser": "^5.47.1",
+    "cypress": "^12.4.1",
+    "dts-bundle-generator": "^7.2.0",
+    "eslint": "^8.30.0",
+    "eslint-plugin-jsdoc": "^39.6.4",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-prettier": "^4.2.1",
     "istanbul-lib-coverage": "^3.2.0",
-    "istanbul-lib-instrument": "^5.2.0",
-    "npm-run-all": "^4.1.5",
+    "istanbul-lib-instrument": "^5.2.1",
     "nyc": "^15.1.0",
-    "rollup": "^1.32.1",
-    "rollup-plugin-terser": "^5.3.0",
-    "typescript": "^4.5.2"
+    "prettier": "^2.8.3",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.4"
   }
 }

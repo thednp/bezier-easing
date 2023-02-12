@@ -1,7 +1,9 @@
-const tweens = [];
+import type { BezierEasingFunction } from '../../src/easing-function'
+
+const tweens: Tween[] = [];
 let tick = 0;
 
-function ticker(t) {
+function ticker(t?: number) {
   let i = 0;
   while (i < tweens.length) {
     if (tweens[i].update(t)) {
@@ -14,7 +16,15 @@ function ticker(t) {
 }
 
 export default class Tween {
-  constructor(element, propsStart, propsEnd, duration, easing) {
+  element: HTMLElement;
+  propsStart: object;
+  propsEnd: object;
+  duration: number;
+  easing: BezierEasingFunction;
+  startTime: number;
+  _onUpdate: (this: Tween, t: number) => void;
+
+  constructor(element: HTMLElement, propsStart: object, propsEnd: object, duration: number, easing: BezierEasingFunction) {
     this.element = element;
     this.propsStart = propsStart;
     this.propsEnd = propsEnd;
@@ -22,7 +32,7 @@ export default class Tween {
     this.easing = easing || 'linear';
     return this;
   }
-  start(t){
+  start(t?: number){
     tweens.push(this);
     this.startTime = t || window.performance.now();
     if (!tick) ticker();
@@ -52,7 +62,7 @@ export default class Tween {
     return true;
   }
 
-  onUpdate(onUpdate){
+  onUpdate(onUpdate: (this: Tween, t: number) => void){
     this._onUpdate = onUpdate;
     return this;
   }

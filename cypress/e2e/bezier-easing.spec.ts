@@ -1,10 +1,10 @@
 /// <reference types="cypress" />
-/** @typedef {import("../../types/index")} */
 
-import CubicBezier from '../../src/index';
+import CubicBezier from '../../src';
 import round4 from '../fixtures/round4';
 import Tween from '../fixtures/basic-animation-engine';
 import easingParams from '../fixtures/easing-params';
+import type { BezierEasingFunction } from '../../src/easing-function';
 
 describe('CubicBezier Class Test', () => {
   beforeEach(() => {
@@ -16,14 +16,14 @@ describe('CubicBezier Class Test', () => {
   });
 
   it('Can do basic function, no parameters => linear', () => {
-    const linear = new CubicBezier();
+    const linear = new CubicBezier() as BezierEasingFunction;
     [0,0.25,0.5,0.75,1].forEach((step) => {
       expect(round4(linear(step))).to.equal(step)
     });
   });
 
   it('Can do basic function, cubicOut', () => {
-    const cubicOut = new CubicBezier(...easingParams[3]);
+    const cubicOut = new CubicBezier(...easingParams[3]) as BezierEasingFunction;
     [0,0.25,0.5,0.75,1].forEach((step) => {
       const roundedValue = round4(cubicOut(step));
       if ([0, 1].includes(step)) {
@@ -36,8 +36,8 @@ describe('CubicBezier Class Test', () => {
 
   easingParams.forEach((params, i) => {
     it(`Can do basic animation #${i}`, () => {
-      const ease = new CubicBezier(...params);
-      function updateTween(t) {
+      const ease = new CubicBezier(...params) as BezierEasingFunction;
+      function updateTween(this: Tween, t: number) {
         const { propsEnd, propsStart, element } = this;
   
         Object.keys(propsEnd).forEach((prop) => {

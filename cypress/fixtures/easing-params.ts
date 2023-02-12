@@ -1,4 +1,4 @@
-const easingParams = [
+const easingParams: [number, number, number, number][] = [
   [0.6, -0.28, 0.74, 0.05], // backin
   [0.18, 0.89, 0.32, 1.28], // backout
   [0.68, -0.55, 0.27, 1.55], // backinout

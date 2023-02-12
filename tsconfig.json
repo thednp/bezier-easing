@@ -1,19 +1,29 @@
 {
-  "compilerOptions": {
-    "moduleResolution": "Node",
-    "declaration": true,
-    "resolveJsonModule": true,
-    "emitDeclarationOnly": true,
-    // "removeComments": true,
-    "strict": true,
-    "allowJs": true,
-    // "outFile": "types/bezier-easing.d.ts", // comment after generate
-    "outDir": "types",
-    "rootDir": "../"
-  },
-  "files": [
-    "types/index.d.ts",
-    "types/bezier-easing.d.ts", // comment to generate, delete file
-    // "types/modules/cubic-bezier-easing.ts", // UN-comment to generate, comment after
-  ],
+  // https://janessagarrow.com/blog/typescript-and-esbuild/
+ "compilerOptions": {
+   "lib": ["DOM", "ESNext", "DOM.Iterable"],
+   "types": ["vite", "vite/client", "cypress"],
+   "rootDir": "./",
+   "baseUrl": "./",
+   "module": "ESNext",
+   "target": "ESNext",
+   "moduleResolution": "Node",
+   "allowJs": true,
+   "forceConsistentCasingInFileNames": true,
+   "useDefineForClassFields": true,
+   "strict": true,
+   "sourceMap": true,
+   "resolveJsonModule": true,
+   "esModuleInterop": true,
+   "isolatedModules": true,
+   "noUnusedLocals": true,
+   "noUnusedParameters": true,
+   "noImplicitReturns": true,
+   "removeComments": false,
+   "allowSyntheticDefaultImports": true,
+   "noEmit": true,
+   "checkJs": true
+ },
+ "include": ["src/*"],
+ "exclude": ["node_modules", "experiments", "coverage", "dist"],
 }

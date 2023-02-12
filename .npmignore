@@ -1,7 +1,7 @@
-node_modules/
-.gitignore
 .github
+.gitignore
 .nyc_output
+node_modules
 experiments
 coverage
 cypress/videos

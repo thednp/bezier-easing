@@ -1,10 +1,13 @@
 ## CubicBezier
 [![Coverage Status](https://coveralls.io/repos/github/thednp/bezier-easing/badge.svg)](https://coveralls.io/github/thednp/bezier-easing)
-![cypress version](https://img.shields.io/badge/cypress-9.6.0-brightgreen)
-![typescript version](https://img.shields.io/badge/typescript-4.5.2-brightgreen)
 [![ci](https://github.com/thednp/CubicBezier/actions/workflows/ci.yml/badge.svg)](https://github.com/thednp/CubicBezier/actions/workflows/ci.yml)
+[![typescript version](https://img.shields.io/badge/typescript-4.9.4-brightgreen)](https://www.typescriptlang.org/)
+[![eslint version](https://img.shields.io/badge/eslint-8.29.0-brightgreen)](https://github.com/eslint)
+[![prettier version](https://img.shields.io/badge/prettier-2.8.3-brightgreen)](https://prettier.io/)
+[![cypress version](https://img.shields.io/badge/cypress-12.4.1-brightgreen)](https://cypress.io/)
+[![vite version](https://img.shields.io/badge/vite-4.0.4-brightgreen)](https://github.com/vitejs)
 
-A JavaScript ES6+ cubic-bezier class to create easing functions as used in [KUTE.js](https://github.com/thednp/kute.js). The module is based on UnitBezier by Apple, a piece of code found on [Codepen](https://codepen.io/jwdunn/pen/VJGzNm).
+A Typescript sourced cubic-bezier class to create easing functions as used in [KUTE.js](https://github.com/thednp/kute.js). The module is based on UnitBezier by Apple, a piece of code found on [Codepen](https://codepen.io/jwdunn/pen/VJGzNm).
 
 ## Install
 ```js
