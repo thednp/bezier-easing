@@ -1,7 +1,7 @@
 {
   "name": "@thednp/bezier-easing",
-  "version": "1.0.2-alpha1",
-  "description": "A simple cubic-bezier easing functions factory for KUTE.js, developed with ES6+ and based on UnitBezier",
+  "version": "1.0.2-alpha2",
+  "description": "A Typescript based cubic-bezier easing functions factory for KUTE.js based on UnitBezier",
   "homepage": "https://github.com/thednp/bezier-easing",
   "author": "thednp",
   "license": "MIT",

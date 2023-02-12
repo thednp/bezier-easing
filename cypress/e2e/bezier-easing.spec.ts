@@ -17,13 +17,17 @@ describe('CubicBezier Class Test', () => {
 
   it('Can do basic function, no parameters => linear', () => {
     const linear = new CubicBezier() as BezierEasingFunction;
+    expect(linear.name).to.equal('linear');
+
     [0,0.25,0.5,0.75,1].forEach((step) => {
       expect(round4(linear(step))).to.equal(step)
     });
   });
 
   it('Can do basic function, cubicOut', () => {
-    const cubicOut = new CubicBezier(...easingParams[3]) as BezierEasingFunction;
+    const cubicOut = new CubicBezier(...easingParams[3], 'cubicOut') as BezierEasingFunction;
+    expect(cubicOut.name).to.equal('cubicOut');
+
     [0,0.25,0.5,0.75,1].forEach((step) => {
       const roundedValue = round4(cubicOut(step));
       if ([0, 1].includes(step)) {
