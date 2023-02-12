@@ -1,6 +1,6 @@
 ## CubicBezier
 [![Coverage Status](https://coveralls.io/repos/github/thednp/bezier-easing/badge.svg)](https://coveralls.io/github/thednp/bezier-easing)
-[![ci](https://github.com/thednp/CubicBezier/actions/workflows/ci.yml/badge.svg)](https://github.com/thednp/CubicBezier/actions/workflows/ci.yml)
+[![ci](https://github.com/thednp/bezier-easing/actions/workflows/ci.yml/badge.svg)](https://github.com/thednp/bezier-easing/actions/workflows/ci.yml)
 [![typescript version](https://img.shields.io/badge/typescript-4.9.4-brightgreen)](https://www.typescriptlang.org/)
 [![eslint version](https://img.shields.io/badge/eslint-8.30.0-brightgreen)](https://github.com/eslint)
 [![prettier version](https://img.shields.io/badge/prettier-2.8.3-brightgreen)](https://prettier.io/)
