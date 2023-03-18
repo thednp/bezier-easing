@@ -1,11 +1,11 @@
 ## CubicBezier
 [![Coverage Status](https://coveralls.io/repos/github/thednp/bezier-easing/badge.svg)](https://coveralls.io/github/thednp/bezier-easing)
 [![ci](https://github.com/thednp/bezier-easing/actions/workflows/ci.yml/badge.svg)](https://github.com/thednp/bezier-easing/actions/workflows/ci.yml)
-[![typescript version](https://img.shields.io/badge/typescript-4.9.4-brightgreen)](https://www.typescriptlang.org/)
-[![eslint version](https://img.shields.io/badge/eslint-8.30.0-brightgreen)](https://github.com/eslint)
-[![prettier version](https://img.shields.io/badge/prettier-2.8.3-brightgreen)](https://prettier.io/)
-[![cypress version](https://img.shields.io/badge/cypress-12.4.1-brightgreen)](https://cypress.io/)
-[![vite version](https://img.shields.io/badge/vite-4.0.4-brightgreen)](https://github.com/vitejs)
+[![typescript version](https://img.shields.io/badge/typescript-5.0.2-brightgreen)](https://www.typescriptlang.org/)
+[![eslint version](https://img.shields.io/badge/eslint-8.36.0-brightgreen)](https://github.com/eslint)
+[![prettier version](https://img.shields.io/badge/prettier-2.8.4-brightgreen)](https://prettier.io/)
+[![cypress version](https://img.shields.io/badge/cypress-12.8.1-brightgreen)](https://cypress.io/)
+[![vite version](https://img.shields.io/badge/vite-4.2.0-brightgreen)](https://github.com/vitejs)
 
 A Typescript sourced cubic-bezier class to create easing functions as used in [KUTE.js](https://github.com/thednp/kute.js). The module is based on UnitBezier by Apple, a piece of code found on [Codepen](https://codepen.io/jwdunn/pen/VJGzNm).
 
