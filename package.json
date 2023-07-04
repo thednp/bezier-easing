@@ -1,15 +1,15 @@
 {
   "name": "@thednp/bezier-easing",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A Typescript based cubic-bezier easing functions factory for KUTE.js based on UnitBezier",
   "homepage": "https://github.com/thednp/bezier-easing",
   "author": "thednp",
   "license": "MIT",
   "main": "./dist/bezier-easing.js",
   "module": "./dist/bezier-easing.mjs",
-  "types": "./dist/bezier-easing.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/bezier-easing.d.ts",
       "require": "./dist/bezier-easing.cjs",
       "import": "./dist/bezier-easing.mjs"
     }
@@ -51,14 +51,14 @@
   ],
   "devDependencies": {
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
-    "@cypress/code-coverage": "^3.10.7",
+    "@cypress/code-coverage": "^3.10.8",
     "@types/istanbul-lib-instrument": "^1.7.4",
-    "@typescript-eslint/eslint-plugin": "^5.59.9",
-    "@typescript-eslint/parser": "^5.59.9",
-    "cypress": "^12.14.0",
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
+    "cypress": "^12.16.0",
     "dts-bundle-generator": "^8.0.1",
-    "eslint": "^8.42.0",
-    "eslint-plugin-jsdoc": "^46.2.6",
+    "eslint": "^8.44.0",
+    "eslint-plugin-jsdoc": "^46.4.3",
     "eslint-plugin-prefer-arrow": "^1.2.3",
     "eslint-plugin-prettier": "^4.2.1",
     "istanbul-lib-coverage": "^3.2.0",
@@ -66,7 +66,7 @@
     "nyc": "^15.1.0",
     "prettier": "^2.8.8",
     "rimraf": "^5.0.1",
-    "typescript": "^5.1.3",
+    "typescript": "^5.1.6",
     "vite": "^4.3.9"
   }
 }
