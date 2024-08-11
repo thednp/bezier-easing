@@ -5,7 +5,7 @@
  *
  * @class
  */
-export default class CubicBezier {
+declare class CubicBezier {
 	cx: number;
 	bx: number;
 	ax: number;
@@ -43,6 +43,10 @@ export default class CubicBezier {
 	 */
 	solveCurveX(x: number): number;
 }
+
+export {
+	CubicBezier as default,
+};
 
 export as namespace CubicBezier;
 
