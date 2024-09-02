@@ -100,7 +100,7 @@ export default class CubicBezier {
       x2 = this.sampleCurveX(t2) - x;
       if (Math.abs(x2) < epsilon) return t2;
       d2 = this.sampleCurveDerivativeX(t2);
-      /* istanbul ignore next */
+      /* istanbul ignore next @preserve */
       if (Math.abs(d2) < epsilon) break;
       t2 -= x2 / d2;
     }
@@ -120,7 +120,7 @@ export default class CubicBezier {
     }
 
     // Give up
-    /* istanbul ignore next */
+    /* istanbul ignore next @preserve */
     return t2;
   }
 }

@@ -13,8 +13,8 @@ jobs:
         with:
           node-version: 20
       - run: npm install
-      - run: npx cypress install
-      - run: npm run build # includes lint:ts
+      - run: npm run lint
+      - run: npm run build
       - run: npm run test
 
       - name: Upload coverage report on Node 20 to coveralls.io...

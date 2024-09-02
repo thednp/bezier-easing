@@ -54,7 +54,9 @@ class f {
     let t = e, s = 0, l = 0;
     for (let c = 0; c < 8; c += 1) {
       if (s = this.sampleCurveX(t) - e, Math.abs(s) < 1e-6) return t;
-      if (l = this.sampleCurveDerivativeX(t), Math.abs(l) < 1e-6) break;
+      l = this.sampleCurveDerivativeX(t);
+      /* istanbul ignore next @preserve */
+      if (Math.abs(l) < 1e-6) break;
       t -= s / l;
     }
     let r = 0, a = 1;
@@ -62,6 +64,7 @@ class f {
       if (s = this.sampleCurveX(t), Math.abs(s - e) < 1e-6) return t;
       e > s ? r = t : a = t, t = (a - r) * 0.5 + r;
     }
+    /* istanbul ignore next @preserve */
     return t;
   }
 }
