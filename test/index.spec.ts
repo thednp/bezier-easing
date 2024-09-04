@@ -2,11 +2,11 @@
 import { expect, test, describe } from 'vitest';
 import { getByText, waitFor } from '@testing-library/dom';
 
-import CubicBezier from '.';
+import CubicBezier from '../src';
 import round4 from './fixtures/round4';
 import Tween from './fixtures/basic-animation-engine';
 import easingParams from './fixtures/easing-params';
-import type { BezierEasingFunction } from './easing-function';
+import type { BezierEasingFunction } from '../src/easing-function';
 
 const getExampleDOM = () => {
   // This is just a raw example of setting up some DOM
