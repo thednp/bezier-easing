@@ -1,5 +1,4 @@
-// @vitest-environment happy-dom
-import { expect, test, describe } from 'vitest';
+import { expect, it, describe } from 'vitest';
 import { getByText, waitFor } from '@testing-library/dom';
 
 import CubicBezier from '../src';
@@ -20,7 +19,7 @@ const getExampleDOM = () => {
 };
 
 describe('CubicBezier Class Test', () => {
-  test('Can do basic function, no parameters => linear', () => {
+  it('Can do basic function, no parameters => linear', () => {
     const linear = new CubicBezier() as BezierEasingFunction;
     expect(linear.name).to.equal('linear');
 
@@ -29,7 +28,7 @@ describe('CubicBezier Class Test', () => {
     });
   });
 
-  test('Can do basic function, cubicOut', () => {
+  it('Can do basic function, cubicOut', () => {
     const cubicOut = new CubicBezier(...easingParams[3], 'cubicOut') as BezierEasingFunction;
     expect(cubicOut.name).to.equal('cubicOut');
 
@@ -44,7 +43,7 @@ describe('CubicBezier Class Test', () => {
   });
 
   easingParams.forEach((params, i) => {
-    test(`Can do basic animation #${i}`, async () => {
+    it(`Can do basic animation #${i}`, async () => {
       const container = getExampleDOM();
       const ease = new CubicBezier(...params) as BezierEasingFunction;
       function updateTween(this: Tween, t: number) {
