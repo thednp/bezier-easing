@@ -41,7 +41,7 @@ You can use CubicBezier in combination with other libraries like [D3](https://gi
 * unpack/unzip and open the folder with your editor;
 * open your terminal and navigate to the root of the unpacked folder;
 * run `npm install` or `npm update`, takes a few minutes to download the Electron browser;
-* run `npm run cypress` to open the Cypress console OR `npm run test` to run the tests in headless mode.
+* run `npm run test-ui` to open the test in UI mode OR `npm run test` to run the tests in headless mode.
 
 ## License
 MIT License
