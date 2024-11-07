@@ -1,4 +1,4 @@
-import type { BezierEasingFunction } from './easing-function';
+import type { BezierEasingFunction } from "./easing-function";
 
 /**
  * Creates cubic-bezier easing functions for animation engines.
@@ -23,20 +23,26 @@ export default class CubicBezier {
    * @param functionName - an optional function name
    * @returns a new CubicBezier easing function
    */
-  constructor(x1?: number, y1?: number, x2?: number, y2?: number, functionName?: string) {
+  constructor(
+    x1?: number,
+    y1?: number,
+    x2?: number,
+    y2?: number,
+    functionName?: string,
+  ) {
     // pre-calculate the polynomial coefficients
     // First and last control points are implied to be (0.0, 0.0) and (1.0, 1.0)
     const p1x = x1 || 0;
     const p1y = y1 || 0;
     const p2x = x2 || 1;
     const p2y = y2 || 1;
-    const isNumber = (n: unknown): n is number => typeof n === 'number';
+    const isNumber = (n: unknown): n is number => typeof n === "number";
     const allNumbers = [x1, y1, x2, y2].every(isNumber);
     const name = functionName
       ? functionName
       : allNumbers
-      ? `cubic-bezier(${[p1x, p1y, p2x, p2y].join(',')})`
-      : 'linear';
+      ? `cubic-bezier(${[p1x, p1y, p2x, p2y].join(",")})`
+      : "linear";
 
     this.cx = 3 * p1x;
     this.bx = 3 * (p2x - p1x) - this.cx;
@@ -48,7 +54,7 @@ export default class CubicBezier {
     const BezierEasing = (t: number) => this.sampleCurveY(this.solveCurveX(t));
 
     // this function needs a name
-    Object.defineProperty(BezierEasing, 'name', { writable: true });
+    Object.defineProperty(BezierEasing, "name", { writable: true });
     BezierEasing.name = name;
 
     return BezierEasing as BezierEasingFunction;

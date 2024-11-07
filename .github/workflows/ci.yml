@@ -8,16 +8,33 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: PNPM setup
+        uses: pnpm/action-setup@v3
+
+      - name: Deno Setup
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Node Setup
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm install
-      - run: npm run lint
-      - run: npm run build
-      - run: npm run test
+          cache: pnpm
 
-      - name: Upload coverage report on Node 20 to coveralls.io...
+      - name: Install Dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Build
+        run: pnpm build
+
+      - name: ViTest
+        run: pnpm test
+
+      - name: Upload coverage report to coveralls.io...
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}

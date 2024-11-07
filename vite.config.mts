@@ -1,6 +1,7 @@
-import { resolve } from 'path';
+import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import { name } from './package.json';
+import dts from "vite-plugin-dts";
 
 const getPackageName = () => {
   return name.includes('@') ? name.split('/')[1] : name;
@@ -16,6 +17,13 @@ const fileName = {
 
 export default defineConfig({
   base: './',
+  plugins: [
+    dts({
+      outDir: 'dist',
+      copyDtsFiles: true,
+      rollupTypes: true,
+    }),
+  ],
   build: {
     emptyOutDir: true,
     outDir: 'dist',
