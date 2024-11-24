@@ -6,5 +6,6 @@ experiments
 coverage
 test
 src
+tsconfig.json
 vite.config.mts
 vitest.config.mts

@@ -2,6 +2,7 @@ import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import { name } from './package.json';
 import dts from "vite-plugin-dts";
+import strip from "vite-plugin-strip-comments";
 
 const getPackageName = () => {
   return name.includes('@') ? name.split('/')[1] : name;
@@ -23,6 +24,7 @@ export default defineConfig({
       copyDtsFiles: true,
       rollupTypes: true,
     }),
+    strip(),
   ],
   build: {
     emptyOutDir: true,
