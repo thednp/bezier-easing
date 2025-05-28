@@ -24,6 +24,6 @@
    "noEmit": true,
    "checkJs": true
  },
- "include": ["src/*", "test/fixtures", "test/index.spec.ts"],
+ "include": ["src/*"],
  "exclude": ["node_modules", "experiments", "coverage", "dist"],
 }

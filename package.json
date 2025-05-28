@@ -1,6 +1,6 @@
 {
   "name": "@thednp/bezier-easing",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "🍬 A Typescript based cubic-bezier easing functions factory for KUTE.js based on UnitBezier",
   "homepage": "https://github.com/thednp/bezier-easing",
   "author": "thednp",
@@ -30,10 +30,10 @@
     "format": "deno fmt src",
     "lint": "pnpm lint:ts && pnpm lint:types",
     "lint:ts": "deno lint src",
-    "lint:types": "tsc --noEmit",
+    "lint:types": "tsc --noEmit src/*",
     "fix:ts": "deno lint src --fix",
     "build": "vite build",
-    "prepublishOnly": "pnpm format && pnpm lint && pnpm build && pnpm badges"
+    "prepublishOnly": "pnpm update --latest && pnpm format && pnpm lint && pnpm build && pnpm badges"
   },
   "repository": {
     "type": "git",
@@ -53,15 +53,15 @@
   ],
   "devDependencies": {
     "@testing-library/dom": "^10.4.0",
-    "@types/node": "^22.9.3",
-    "@vitest/coverage-istanbul": "^2.1.5",
-    "@vitest/ui": "^2.1.5",
-    "happy-dom": "^15.11.6",
-    "typescript": "^5.7.2",
-    "vite": "^5.4.11",
-    "vite-plugin-dts": "^4.3.0",
-    "vite-plugin-strip-comments": "^0.0.4",
-    "vitest": "^2.1.5"
+    "@types/node": "^22.15.23",
+    "@vitest/coverage-istanbul": "^3.1.4",
+    "@vitest/ui": "^3.1.4",
+    "happy-dom": "^17.5.6",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vite-plugin-dts": "^4.5.4",
+    "vite-plugin-strip-comments": "^0.0.5",
+    "vitest": "^3.1.4"
   },
   "packageManager": "pnpm@8.6.12",
   "engines": {
