@@ -30,7 +30,7 @@
     "format": "deno fmt src",
     "lint": "pnpm lint:ts && pnpm lint:types",
     "lint:ts": "deno lint src",
-    "lint:types": "tsc --noEmit src/*",
+    "lint:types": "tsc --noEmit",
     "fix:ts": "deno lint src --fix",
     "build": "vite build",
     "prepublishOnly": "pnpm update --latest && pnpm format && pnpm lint && pnpm build && pnpm badges"
