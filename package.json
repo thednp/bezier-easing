@@ -1,6 +1,6 @@
 {
   "name": "@thednp/bezier-easing",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "🍬 A Typescript based cubic-bezier easing functions factory for KUTE.js based on UnitBezier",
   "homepage": "https://github.com/thednp/bezier-easing",
   "author": "thednp",
@@ -14,6 +14,12 @@
       "import": "./dist/bezier-easing.mjs"
     }
   },
+  "files": [
+    "dist",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
   "bugs": {
     "url": "https://github.com/thednp/bezier-easing/issues"
   },
@@ -52,16 +58,16 @@
     "typescript"
   ],
   "devDependencies": {
-    "@testing-library/dom": "^10.4.0",
-    "@types/node": "^22.15.23",
-    "@vitest/coverage-istanbul": "^3.1.4",
-    "@vitest/ui": "^3.1.4",
-    "happy-dom": "^20.0.0",
-    "typescript": "^5.8.3",
-    "vite": "^6.3.5",
+    "@testing-library/dom": "^10.4.1",
+    "@types/node": "^25.0.9",
+    "@vitest/coverage-istanbul": "^4.0.17",
+    "@vitest/ui": "^4.0.17",
+    "happy-dom": "^20.3.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1",
     "vite-plugin-dts": "^4.5.4",
-    "vite-plugin-strip-comments": "^0.0.5",
-    "vitest": "^3.1.4"
+    "vite-plugin-strip-comments": "^0.0.6",
+    "vitest": "^4.0.17"
   },
   "packageManager": "pnpm@8.6.12",
   "engines": {

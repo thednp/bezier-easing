@@ -1,18 +1,15 @@
-var m = Object.defineProperty;
-var x = (n, e, i) => e in n ? m(n, e, { enumerable: !0, configurable: !0, writable: !0, value: i }) : n[e] = i;
-var h = (n, e, i) => x(n, typeof e != "symbol" ? e + "" : e, i);
-class f {
-  constructor(e, i, t, s, l) {
-    h(this, "cx");
-    h(this, "bx");
-    h(this, "ax");
-    h(this, "cy");
-    h(this, "by");
-    h(this, "ay");
-    const r = e || 0, a = i || 0, c = t || 1, o = s || 1, p = (b) => typeof b == "number", v = [e, i, t, s].every(p), y = l || (v ? `cubic-bezier(${[r, a, c, o].join(",")})` : "linear");
-    this.cx = 3 * r, this.bx = 3 * (c - r) - this.cx, this.ax = 1 - this.cx - this.bx, this.cy = 3 * a, this.by = 3 * (o - a) - this.cy, this.ay = 1 - this.cy - this.by;
-    const u = (b) => this.sampleCurveY(this.solveCurveX(b));
-    return Object.defineProperty(u, "name", { writable: !0 }), u.name = y, u;
+class y {
+  cx;
+  bx;
+  ax;
+  cy;
+  by;
+  ay;
+  constructor(e, n, t, s, a) {
+    const i = e || 0, r = n || 0, h = t || 1, u = s || 1, b = (c) => typeof c == "number", o = [e, n, t, s].every(b), p = a || (o ? `cubic-bezier(${[i, r, h, u].join(",")})` : "linear");
+    this.cx = 3 * i, this.bx = 3 * (h - i) - this.cx, this.ax = 1 - this.cx - this.bx, this.cy = 3 * r, this.by = 3 * (u - r) - this.cy, this.ay = 1 - this.cy - this.by;
+    const l = (c) => this.sampleCurveY(this.solveCurveX(c));
+    return Object.defineProperty(l, "name", { writable: !0 }), l.name = p, l;
   }
   sampleCurveX(e) {
     return ((this.ax * e + this.bx) * e + this.cx) * e;
@@ -26,21 +23,21 @@ class f {
   solveCurveX(e) {
     if (e <= 0) return 0;
     if (e >= 1) return 1;
-    let t = e, s = 0, l = 0;
-    for (let c = 0; c < 8; c += 1) {
+    let t = e, s = 0, a = 0;
+    for (let h = 0; h < 8; h += 1) {
       if (s = this.sampleCurveX(t) - e, Math.abs(s) < 1e-6) return t;
-      if (l = this.sampleCurveDerivativeX(t), Math.abs(l) < 1e-6) break;
-      t -= s / l;
+      if (a = this.sampleCurveDerivativeX(t), Math.abs(a) < 1e-6) break;
+      t -= s / a;
     }
-    let r = 0, a = 1;
-    for (t = e; r < a; ) {
+    let i = 0, r = 1;
+    for (t = e; i < r; ) {
       if (s = this.sampleCurveX(t), Math.abs(s - e) < 1e-6) return t;
-      e > s ? r = t : a = t, t = (a - r) * 0.5 + r;
+      e > s ? i = t : r = t, t = (r - i) * 0.5 + i;
     }
     return t;
   }
 }
 export {
-  f as default
+  y as default
 };
 //# sourceMappingURL=bezier-easing.mjs.map

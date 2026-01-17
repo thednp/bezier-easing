@@ -1,9 +1,9 @@
 ## CubicBezier
 [![Coverage Status](https://coveralls.io/repos/github/thednp/bezier-easing/badge.svg)](https://coveralls.io/github/thednp/bezier-easing)
 [![ci](https://github.com/thednp/bezier-easing/actions/workflows/ci.yml/badge.svg)](https://github.com/thednp/bezier-easing/actions/workflows/ci.yml)
-[![typescript version](https://img.shields.io/badge/typescript-5.8.3-brightgreen)](https://www.typescriptlang.org/)
-[![vitest version](https://img.shields.io/badge/vitest-3.1.4-brightgreen)](https://vitest.dev/)
-[![vite version](https://img.shields.io/badge/vite-6.3.5-brightgreen)](https://github.com/vitejs)
+[![typescript version](https://img.shields.io/badge/typescript-5.9.3-brightgreen)](https://www.typescriptlang.org/)
+[![vitest version](https://img.shields.io/badge/vitest-4.0.17-brightgreen)](https://vitest.dev/)
+[![vite version](https://img.shields.io/badge/vite-7.3.1-brightgreen)](https://github.com/vitejs)
 
 A Typescript sourced cubic-bezier class to create easing functions as used in [KUTE.js](https://github.com/thednp/kute.js). The module is based on UnitBezier by Apple, a piece of code found on [Codepen](https://codepen.io/jwdunn/pen/VJGzNm).
 

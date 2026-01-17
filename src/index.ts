@@ -1,4 +1,4 @@
-import type { BezierEasingFunction } from "./easing-function";
+import type { BezierEasingFunction } from "./easing-function.ts";
 
 /**
  * Creates cubic-bezier easing functions for animation engines.
