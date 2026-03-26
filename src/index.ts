@@ -1,4 +1,5 @@
 import type { BezierEasingFunction } from "./easing-function.ts";
+import { version } from "../package.json";
 
 /**
  * Creates cubic-bezier easing functions for animation engines.
@@ -8,6 +9,7 @@ import type { BezierEasingFunction } from "./easing-function.ts";
  * @class
  */
 export default class CubicBezier {
+  static version = version;
   public cx: number;
   public bx: number;
   public ax: number;

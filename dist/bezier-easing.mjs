@@ -1,5 +1,6 @@
-//#region src/index.ts
-var e = class {
+//#region package.json
+var e = "1.0.14", t = class {
+	static version = e;
 	cx;
 	bx;
 	ax;
@@ -50,6 +51,6 @@ var e = class {
 	}
 };
 //#endregion
-export { e as default };
+export { t as default };
 
 //# sourceMappingURL=bezier-easing.mjs.map
